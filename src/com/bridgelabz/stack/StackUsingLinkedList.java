@@ -17,7 +17,7 @@ class List<T> {
         this.top = null;
     }
 
-    public void push(int data) {
+    public void push(T data) {
         Node newNode = new Node(data);
         if (top == null) {
             top = newNode;
@@ -27,6 +27,25 @@ class List<T> {
         }
         len++;
     }
+    public boolean isEmpty()
+    {
+        return top == null;
+    }
+    public T peek() {
+        if (!isEmpty()) {
+            return top.data;
+        } else {
+            System.out.println("Stack is empty");
+            return null;
+        }
+    }
+        public void pop() {
+            if (top == null) {
+                System.out.print("\nStack Underflow");
+            }
+            top = top.next;
+        }
+
     public String toString() {
 
         String S = "{";
@@ -51,8 +70,10 @@ public class StackUsingLinkedList {
         stack.push(70);
         stack.push(30);
         stack.push(50);
-        System.out.println("stack is "+stack);
 
+        System.out.println("peeked element top is " + stack.peek());
+        System.out.println("stack before popped is "+stack);
+        stack.pop();
+        System.out.println("stack after popped is "+stack);
     }
-
 }
