@@ -31,6 +31,17 @@ class Queue <T>{
         this.rear.next = temp;
         this.rear = temp;
     }
+    void dequeue()
+    {
+        if (this.front == null)
+            return;
+
+        Node temp = this.front;
+        this.front = this.front.next;
+
+        if (this.front == null)
+            this.rear = null;
+    }
 
     @Override
     public String toString() {
@@ -57,6 +68,9 @@ public class QueueUsingLinkedList {
         queue.enqueue(56);
         queue.enqueue(30);
         queue.enqueue(70);
-        System.out.println(queue);
+        System.out.println("ListQueue before dequeue "+queue);
+        queue.dequeue();
+        System.out.println("List after Dequeue "+queue);
+
     }
 }
